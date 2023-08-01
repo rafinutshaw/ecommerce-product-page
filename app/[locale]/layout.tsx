@@ -13,7 +13,7 @@ type LocaleLayoutType = {
   };
 };
 
-export default function DashboardLayout(props: LocaleLayoutType) {
+export default function LocaleLayout(props: LocaleLayoutType) {
   const { params, children } = props;
   const { locale } = params;
 
@@ -33,20 +33,16 @@ export default function DashboardLayout(props: LocaleLayoutType) {
   }, [locale]);
 
   return (
-    <html lang="en">
-      <body>
-        {!!messages && (
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <div className="fixed bg-white w-full z-10">
-              <AppLayout />
-            </div>
-            <div className="flex justify-center pt-32">
-              <div className="container">{children}</div>
-            </div>
-            <AppFooter />
-          </NextIntlClientProvider>
-        )}
-      </body>
-    </html>
+    !!messages && (
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <div className="fixed bg-white w-full z-10">
+          <AppLayout />
+        </div>
+        <div className="flex justify-center pt-32">
+          <div className="container">{children}</div>
+        </div>
+        <AppFooter />
+      </NextIntlClientProvider>
+    )
   );
 }

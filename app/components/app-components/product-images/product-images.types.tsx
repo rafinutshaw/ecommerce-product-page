@@ -12,3 +12,9 @@ export type ProductImagesType = {
   images: ProductImage[];
   enableZoom?: boolean;
 };
+
+export type ImagesStateType = {
+  productImages: ProductImage[];
+  isMediaReady: boolean;
+  selectedImage: string;
+};

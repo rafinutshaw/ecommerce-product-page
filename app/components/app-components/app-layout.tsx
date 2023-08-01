@@ -13,7 +13,7 @@ export const AppLayout: React.FC = () => {
     <>
       <div className="flex justify-center border-b-2">
         <div className="container h-16 w-full flex items-center px-2">
-          <Link href="/">
+          <Link href="/" as={"a"}>
             <Image
               src={AppImages.applogo}
               alt="app logo"

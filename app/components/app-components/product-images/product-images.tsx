@@ -4,18 +4,18 @@ import ArrowDownIcon from "@/public/icons/arrow-down.icon";
 import "photoswipe/dist/photoswipe.css";
 import { useEffect, useRef, useState } from "react";
 import { Gallery, Item } from "react-photoswipe-gallery";
-import { ProductImage, ProductImagesType } from "./product-images.types";
+import {
+  ImagesStateType,
+  ProductImage,
+  ProductImagesType,
+} from "./product-images.types";
 
 export const ProductImages: React.FC<ProductImagesType> = (
   props: ProductImagesType
 ) => {
   const { images, enableZoom = true } = props;
 
-  const [state, setState] = useState<{
-    productImages: ProductImage[];
-    isMediaReady: boolean;
-    selectedImage: string;
-  }>({
+  const [state, setState] = useState<ImagesStateType>({
     productImages: [],
     isMediaReady: false,
     selectedImage: "",
@@ -52,7 +52,7 @@ export const ProductImages: React.FC<ProductImagesType> = (
     });
   };
 
-  useEffect(() => {
+  const initializeState = () => {
     let currentImages: ProductImage[] =
       images.length > 0 ? images : [{ url_link: AppImages.ProductPlaceholder }];
     const newState = {
@@ -65,7 +65,9 @@ export const ProductImages: React.FC<ProductImagesType> = (
     };
     setState(newState);
     setMeta(newState);
-  }, [images]);
+  };
+
+  useEffect(initializeState, [images]);
 
   const scrollUpdate = (isUp: boolean = true) => {
     const value = isUp ? -144 : 144;

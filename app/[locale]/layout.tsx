@@ -13,9 +13,7 @@ type LocaleLayoutType = {
   };
 };
 
-export const RootLayout: React.FC<LocaleLayoutType> = (
-  props: LocaleLayoutType
-) => {
+export default function DashboardLayout(props: LocaleLayoutType) {
   const { params, children } = props;
   const { locale } = params;
 
@@ -51,6 +49,4 @@ export const RootLayout: React.FC<LocaleLayoutType> = (
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

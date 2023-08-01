@@ -12,7 +12,7 @@ type LocaleLayoutType = {
   };
 };
 
-export const LocaleLayout: React.FC<PropsWithChildren<LocaleLayoutType>> = (
+export const RootLayout: React.FC<PropsWithChildren<LocaleLayoutType>> = (
   props: PropsWithChildren<LocaleLayoutType>
 ) => {
   const { params, children } = props;
@@ -52,4 +52,4 @@ export const LocaleLayout: React.FC<PropsWithChildren<LocaleLayoutType>> = (
   );
 };
 
-export default LocaleLayout;
+export default RootLayout;

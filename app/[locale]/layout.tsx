@@ -1,19 +1,20 @@
 "use client";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AppFooter from "../components/app-components/app-footer/app-footer";
 import AppLayout from "../components/app-components/app-layout";
 import "../globals.css";
 
 type LocaleLayoutType = {
+  children: React.ReactNode;
   params: {
     locale: string;
   };
 };
 
-export const RootLayout: React.FC<PropsWithChildren<LocaleLayoutType>> = (
-  props: PropsWithChildren<LocaleLayoutType>
+export const RootLayout: React.FC<LocaleLayoutType> = (
+  props: LocaleLayoutType
 ) => {
   const { params, children } = props;
   const { locale } = params;

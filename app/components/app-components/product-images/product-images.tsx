@@ -52,7 +52,7 @@ export const ProductImages: React.FC<ProductImagesType> = (
     });
   };
 
-  const initializeState = () => {
+  useEffect(() => {
     let currentImages: ProductImage[] =
       images.length > 0 ? images : [{ url_link: AppImages.ProductPlaceholder }];
     const newState = {
@@ -65,9 +65,7 @@ export const ProductImages: React.FC<ProductImagesType> = (
     };
     setState(newState);
     setMeta(newState);
-  };
-
-  useEffect(initializeState, [images]);
+  }, [images]);
 
   const scrollUpdate = (isUp: boolean = true) => {
     const value = isUp ? -144 : 144;

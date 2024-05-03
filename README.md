@@ -1,5 +1,5 @@
 This is a ecommerce project made using [Next.js](https://nextjs.org/) .
-
+Live url: https://secundo-app.vercel.app/
 ## Getting Started
 
 First, to get started run the following command:
